@@ -1,8 +1,8 @@
-// TODO: Include packages needed for this application
+// TODO: Include packages needed for this application - DONE
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-// TODO: Create an array of questions for user input
+// TODO: Create an array of questions for user input - DONE
 const questions = [
   {
     type: 'input',
@@ -140,143 +140,20 @@ const questions = [
     type: 'confirm',
     name: 'badges',
     message: 'Would you like to add a Shields.io badge to this project?',
-    validate: (answer) => {
-      if (answer) {
-        inquirer.prompt(badgeQs);
-      }
-      return false;
-    } 
   }
-];
-
-const badgeQs = [
-  {
-    type: 'confirm',
-    name: 'badgesQ',
-    message: 'Would you like this badge to be dynamic?',
-    validate: (answer) => {
-      if (answer) {
-        inquirer.prompt(dyamicQs);
-      } else {
-        inquirer.prompt(staticQs);
-      };     
-    }
-  }
-];
-
-const dyamicQs = [
-  {
-    type: 'input',
-    name: 'label',
-    message: 'Please enter the label you would like for this badge',
-    default: 'Go to: https://shields.io/ for the full list of options',
-    validate: (answer) => {
-      if (answer == '') {
-        return 'Please enter a label for this badge'
-      }
-      return true;
-    }
-  },
-  {
-    type: 'input',
-    name: 'dataURL',
-    message: 'Please enter the data URL for this badge',
-    validate: (answer) => {
-      if (answer == '') {
-        return 'Please enter a URL for this badge'
-      }
-      return true;
-    }
-  },
-  {
-    type: 'input',
-    name: 'query',
-    message: 'Please enter a query for this badge',
-    validate: (answer) => {
-      if (answer == '') {
-        return 'Please enter a query for this badge'
-      }
-      return true;
-    }
-  },
-  {
-    type: 'list',
-    name: 'color',
-    message: 'Please select a color for this badge',
-    default: 'brightgreen',
-    choices: [
-      'brightgreen','green','yellowgreen','yellow','orange','red','blue','lightgrey','success','important','critical','informational','inactive','blueviolet'
-    ],
-  },
-  {
-    type: 'input',
-    name: 'prefix',
-    message: 'Please enter the prefix for your badge',
-    default: 'Go to: https://shields.io/ for the full list of options',
-    validate: (answer) => {
-      if (answer == '') {
-        return 'Please enter a prefix for this badge'
-      }
-      return true;
-    }
-  },
-  {
-    type: 'input',
-    name: 'sufffix',
-    message: 'Please enter the suffix for your badge',
-    default: 'Go to: https://shields.io/ for the full list of options',
-    validate: (answer) => {
-      if (answer == '') {
-        return 'Please enter a suffix for this badge'
-      }
-      return true;
-    }
-  },
-];
-
-const staticQs = [
-  {
-    type: 'input',
-    name: 'label',
-    message: 'Please enter the label you would like for this badge',
-    default: 'Go to: https://shields.io/ for the full list of options',
-    validate: (answer) => {
-      if (answer == '') {
-        return 'Please enter a label for this badge'
-      }
-      return true;
-    }
-  },
-  {
-    type: 'input',
-    name: 'message',
-    message: 'Please enter the message you would like for this badge',
-    default: 'Go to: https://shields.io/ for the full list of options',
-    choices: [],
-    validate: (answer) => {
-      if (answer == '') {
-        return 'Please enter a message for this badge'
-      }
-      return true;
-    }
-  },
-  {
-    type: 'list',
-    name: 'color',
-    message: 'Please select a color for this badge',
-    default: 'brightgreen',
-    choices: [
-      'brightgreen','green','yellowgreen','yellow','orange','red','blue','lightgrey','success','important','critical','informational','inactive','blueviolet'
-    ],
-  },
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer
+  .prompt(questions)
+  .then(answers => {
+    console.log(answers);
+  })
+};
 
 // Function call to initialize app
 init();
-
