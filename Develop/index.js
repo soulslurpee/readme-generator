@@ -1,6 +1,9 @@
 // TODO: Include packages needed for this application - DONE
 const fs = require('fs');
 const inquirer = require('inquirer');
+const readmeGenerator = require('./utils/readmeGenerator.js')
+
+
 
 // TODO: Create an array of questions for user input - DONE
 const questions = [
@@ -144,15 +147,26 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
+const readmeCreate = (readmeContent) => {
+  fs.writefile("../YourNewReadme.md", readmeContent, err => {
+    if (err) throw err;
+    return 'File Created!'
+  })
+};
 
 // TODO: Create a function to initialize app
-function init() {
+
+init = () => {
   inquirer
-  .prompt(questions)
-  .then(answers => {
-    console.log(answers);
-  })
+    .prompt(questions)
+    .then(response => {
+      console.log(response);
+    })
+
+  let readmeContent = readmeGenerator(response);
+
+  readmeCreate(readmeContent);
+
 };
 
 // Function call to initialize app
