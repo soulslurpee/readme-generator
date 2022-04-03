@@ -163,7 +163,7 @@ init = () => {
       console.log(response);
     })
 
-  let readmeContent = readmeGenerator(response);
+  var readmeContent = readmeGenerator(response);
 
   readmeCreate(readmeContent);
 
