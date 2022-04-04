@@ -1,7 +1,6 @@
 function readmeGenerator(response) {
   var currentYear = new Date().getFullYear();
   var readmeContent = 
-
   `# ${response.title}
   ### authored by ${response.name}, [GitHub](https://github.com/${response.github}/),  [email](${response.email})
   
@@ -15,24 +14,24 @@ function readmeGenerator(response) {
   * [Tests](#Tests)
   * [License](#License)
 
-## Installation
-###### [Back to Table of Contents](#Table-of-Contents)
-${reponse.install}
+  ## Installation
+  ###### [Back to Table of Contents](#Table-of-Contents)
+  ${response.install}
 
-## Usage
-###### [Back to Table of Contents](#Table-of-Contents)
-${response.usage}
+  ## Usage
+  ###### [Back to Table of Contents](#Table-of-Contents)
+  ${response.usage}
 
-## Contribution Guidelines
-###### [Back to Table of Contents](#Table-of-Contents)
-${response.contribute}
+  ## Contribution Guidelines
+  ###### [Back to Table of Contents](#Table-of-Contents)
+  ${response.contribute}
 
-## Tests
-###### [Back to Table of Contents](#Table-of-Contents)
-${response.test}
+  ## Tests
+  ###### [Back to Table of Contents](#Table-of-Contents)
+  ${response.test}
 
-#### ${response.title}© ${currentYear} All Rights Reserved.  ${response.license} All material must be cited or credited, when using material (free to use).`
-
+  #### ${response.title}© ${currentYear} All Rights Reserved.  ${response.license}. All material must be cited or credited, when using material (free to use).`
+  return readmeContent;
 };
 
 module.exports = readmeGenerator;

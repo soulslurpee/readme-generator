@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application - DONE
-const fs = require('fs');
+var fs = require('fs');
 const inquirer = require('inquirer');
-const readmeGenerator = require('./utils/readmeGenerator.js')
+const readmeGenerator = require('./utils/readmeGenerator.js');
 
 
 
@@ -147,27 +147,30 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-const readmeCreate = (readmeContent) => {
-  fs.writefile("../YourNewReadme.md", readmeContent, err => {
+const readmeCreate = function(readmeContent) {
+  fs.writeFile("../YourNewReadme.md", readmeContent, err => {
     if (err) throw err;
-    return 'File Created!'
+    console.log('File Created!');
   })
 };
 
 // TODO: Create a function to initialize app
 
-init = () => {
+function init () {
   inquirer
-    .prompt(questions)
-    .then(response => {
-      console.log(response);
-    })
+  .prompt(questions)
+  .then(function(response) {
+    var readmeContent = readmeGenerator(response);
+    readmeCreate(readmeContent);
+  });
+}
 
-  var readmeContent = readmeGenerator(response);
+// function contentGen (response) {
+//   var readmeContent = readmeGenerator(response);
+//   console.log(readmeContent)
+//   return readmeContent;
+// }
 
-  readmeCreate(readmeContent);
-
-};
 
 // Function call to initialize app
 init();
