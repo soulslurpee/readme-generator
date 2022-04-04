@@ -135,11 +135,6 @@ const questions = [
       }
       return true;
     }
-  },
-  {
-    type: 'confirm',
-    name: 'badges',
-    message: 'Would you like to add a Shields.io badge to this project?',
   }
 ];
 
