@@ -2,7 +2,6 @@ function readmeGenerator(response) {
   var currentYear = new Date().getFullYear();
   var readmeContent = 
   `# ${response.title}
-  ### authored by ${response.name}, [GitHub](https://github.com/${response.github}/),  [email](${response.email})
   
   # Description 
   ${response.description}
@@ -29,6 +28,8 @@ function readmeGenerator(response) {
   ## Tests
   ###### [Back to Table of Contents](#Table-of-Contents)
   ${response.test}
+
+  ### authored by ${response.name}, [GitHub](https://github.com/${response.github}/),  [email](${response.email})
 
   #### ${response.title}© ${currentYear} All Rights Reserved.  ${response.license}. All material must be cited or credited, when using material (free to use).`
   return readmeContent;

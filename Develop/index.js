@@ -3,8 +3,6 @@ var fs = require('fs');
 const inquirer = require('inquirer');
 const readmeGenerator = require('./utils/readmeGenerator.js');
 
-
-
 // TODO: Create an array of questions for user input - DONE
 const questions = [
   {
@@ -138,7 +136,6 @@ const questions = [
       return true;
     }
   },
-
   {
     type: 'confirm',
     name: 'badges',
@@ -155,7 +152,6 @@ const readmeCreate = function(readmeContent) {
 };
 
 // TODO: Create a function to initialize app
-
 function init () {
   inquirer
   .prompt(questions)
@@ -164,13 +160,6 @@ function init () {
     readmeCreate(readmeContent);
   });
 }
-
-// function contentGen (response) {
-//   var readmeContent = readmeGenerator(response);
-//   console.log(readmeContent)
-//   return readmeContent;
-// }
-
 
 // Function call to initialize app
 init();
